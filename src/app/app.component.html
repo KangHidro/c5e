@@ -1,41 +1,41 @@
 <div nz-row nzGutter="16" class="pad-20">
 
   <div nz-col nzSpan="24" nzXs="6">
-    <label>Năm sinh</label><br>
-    <nz-select class="w-100" [(ngModel)]="nam.canId" nzPlaceHolder="Chọn" nzShowSearch [nzShowArrow]="false">
+    <label>Năm</label><br>
+    <nz-select class="w-100" [(ngModel)]="nam.canId" nzPlaceHolder="Can" [nzShowArrow]="false">
       <nz-option *ngFor="let can of listCan" [nzLabel]="can.name" [nzValue]="can.id"></nz-option>
     </nz-select><br>
-    <nz-select class="w-100" [(ngModel)]="nam.chiId" nzPlaceHolder="Chọn" nzShowSearch [nzShowArrow]="false">
+    <nz-select class="w-100" [(ngModel)]="nam.chiId" nzPlaceHolder="Chi" [nzShowArrow]="false">
       <nz-option *ngFor="let chi of listChi" [nzLabel]="chi.name" [nzValue]="chi.id"></nz-option>
     </nz-select>
   </div>
 
   <div nz-col nzSpan="24" nzXs="6">
-    <label>Tháng sinh</label><br>
-    <nz-select class="w-100" [(ngModel)]="thang.canId" nzPlaceHolder="Chọn" nzShowSearch [nzShowArrow]="false">
+    <label>Tháng</label><br>
+    <nz-select class="w-100" [(ngModel)]="thang.canId" nzPlaceHolder="Can" [nzShowArrow]="false">
       <nz-option *ngFor="let can of listCan" [nzLabel]="can.name" [nzValue]="can.id"></nz-option>
     </nz-select><br>
-    <nz-select class="w-100" [(ngModel)]="thang.chiId" nzPlaceHolder="Chọn" nzShowSearch [nzShowArrow]="false">
+    <nz-select class="w-100" [(ngModel)]="thang.chiId" nzPlaceHolder="Chi" [nzShowArrow]="false">
       <nz-option *ngFor="let chi of listChi" [nzLabel]="chi.name" [nzValue]="chi.id"></nz-option>
     </nz-select>
   </div>
 
   <div nz-col nzSpan="24" nzXs="6">
-    <label>Ngày sinh</label><br>
-    <nz-select class="w-100" [(ngModel)]="ngay.canId" nzPlaceHolder="Chọn" nzShowSearch [nzShowArrow]="false">
+    <label>Ngày</label><br>
+    <nz-select class="w-100" [(ngModel)]="ngay.canId" nzPlaceHolder="Can" [nzShowArrow]="false">
       <nz-option *ngFor="let can of listCan" [nzLabel]="can.name" [nzValue]="can.id"></nz-option>
     </nz-select><br>
-    <nz-select class="w-100" [(ngModel)]="ngay.chiId" nzPlaceHolder="Chọn" nzShowSearch [nzShowArrow]="false">
+    <nz-select class="w-100" [(ngModel)]="ngay.chiId" nzPlaceHolder="Chi" [nzShowArrow]="false">
       <nz-option *ngFor="let chi of listChi" [nzLabel]="chi.name" [nzValue]="chi.id"></nz-option>
     </nz-select>
   </div>
 
   <div nz-col nzSpan="24" nzXs="6">
-    <label>Giờ sinh</label><br>
-    <nz-select class="w-100" [(ngModel)]="gio.canId" nzPlaceHolder="Chọn" nzShowSearch [nzShowArrow]="false">
+    <label>Giờ</label><br>
+    <nz-select class="w-100" [(ngModel)]="gio.canId" nzPlaceHolder="Can" [nzShowArrow]="false">
       <nz-option *ngFor="let can of listCan" [nzLabel]="can.name" [nzValue]="can.id"></nz-option>
     </nz-select><br>
-    <nz-select class="w-100" [(ngModel)]="gio.chiId" nzPlaceHolder="Chọn" nzShowSearch [nzShowArrow]="false">
+    <nz-select class="w-100" [(ngModel)]="gio.chiId" nzPlaceHolder="Chi" [nzShowArrow]="false">
       <nz-option *ngFor="let chi of listChi" [nzLabel]="chi.name" [nzValue]="chi.id"></nz-option>
     </nz-select>
   </div>
