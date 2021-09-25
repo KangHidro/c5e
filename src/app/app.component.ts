@@ -129,14 +129,14 @@ export class AppComponent {
       !this.gio.canId || !this.gio.chiId
     ) {
       this.result.status = 2;
-      this.nam.canId = 'at';
-      this.nam.chiId = 'hoi';
-      this.thang.canId = 'dinh';
-      this.thang.chiId = 'hoi';
-      this.ngay.canId = 'giap';
-      this.ngay.chiId = 'tuat';
-      this.gio.canId = 'at';
-      this.gio.chiId = 'suu';
+      // this.nam.canId = 'at';
+      // this.nam.chiId = 'hoi';
+      // this.thang.canId = 'dinh';
+      // this.thang.chiId = 'hoi';
+      // this.ngay.canId = 'giap';
+      // this.ngay.chiId = 'tuat';
+      // this.gio.canId = 'at';
+      // this.gio.chiId = 'suu';
     } else {
       this.result = {
         status: 1,
