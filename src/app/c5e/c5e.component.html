@@ -79,7 +79,7 @@
   </div>
 
   <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 1">
-    <b><u>Nhật chủ:</u> </b><span style="color: #ff9800"><b> {{ getNhatChu() }} </b></span><br>
+    <b><u>Nhật chủ:</u> </b><span><b> {{ getNhatChu() }} </b></span><br>
 
     <b><u>Thành phần</u></b><br>
     <b style="color: #607d8b">Kim: {{result.kim}} / 120</b><br>
@@ -89,6 +89,8 @@
     <b style="color: #795548">Thổ: {{result.tho}} / 120</b><br><br>
 
     <b><u>Biểu đồ:</u> </b><br>
+    - Đường màu đỏ: Mức trung bình để so sánh<br>
+    - Đường màu xanh: Chỉ số của bạn<br>
     <div style="display: block">
       <canvas baseChart [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="'radar'" [legend]="false"></canvas>
     </div>
