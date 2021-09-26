@@ -207,7 +207,6 @@ export class C5eComponent {
   copyShareLink() {
     this.isCopying = true;
     this.httpSvc.get(`https://tinyurl.com/api-create.php?url=https://kanghidro.github.io/c5e/?namCan=${this.nam.canId}&namChi=${this.nam.chiId}&thangCan=${this.thang.canId}&thangChi=${this.thang.chiId}&ngayCan=${this.ngay.canId}&ngayChi=${this.ngay.chiId}&gioCan=${this.gio.canId}&gioChi=${this.gio.chiId}`, { responseType: 'text' }).subscribe(res => {
-      console.log(res);
       if (res) {
         this.isCopying = false;
         this.isCopied = true;
