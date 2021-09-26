@@ -60,17 +60,17 @@
   </div>
   <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 1">
     <b><u style="color: #40a9ff">Tháng: {{ getNameCan(thang.canId) }} {{ getNameChi(thang.chiId) }}</u></b><br>
-    <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(nam.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
+    <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(thang.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
     <b>Vòng tràng sinh:</b> {{ getTrangSinh(thang.canId, thang.chiId) }}
   </div>
   <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 1">
     <b><u style="color: #40a9ff">Ngày: {{ getNameCan(ngay.canId) }} {{ getNameChi(ngay.chiId) }}</u></b><br>
-    <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(nam.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
+    <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(ngay.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
     <b>Vòng tràng sinh:</b> {{ getTrangSinh(ngay.canId, ngay.chiId) }}
   </div>
   <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 1">
     <b><u style="color: #40a9ff">Giờ: {{ getNameCan(gio.canId) }} {{ getNameChi(gio.chiId) }}</u></b><br>
-    <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(nam.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
+    <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(gio.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
     <b>Vòng tràng sinh:</b> {{ getTrangSinh(gio.canId, gio.chiId) }}
   </div>
 
