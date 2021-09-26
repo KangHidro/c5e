@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClipboardService } from 'ngx-clipboard';
@@ -42,10 +43,12 @@ export class C5eComponent {
   gio = { canId: '', chiId: '' };
 
   isCopied = false;
+  isCopying = false;
 
   constructor(
     private activatedRouter: ActivatedRoute,
     private clipboardSvc: ClipboardService,
+    private httpSvc: HttpClient,
   ) {
     this.nam.canId = this.activatedRouter.snapshot.queryParamMap.get('namCan') ?? '';
     this.nam.chiId = this.activatedRouter.snapshot.queryParamMap.get('namChi') ?? '';
@@ -195,10 +198,19 @@ export class C5eComponent {
   }
 
   copyShareLink() {
-    this.isCopied = true;
-    setTimeout(() => {
-      this.isCopied = false;
-    }, 2000);
-    this.clipboardSvc.copy(`https://kanghidro.github.io/c5e/?namCan=${this.nam.canId}&namChi=${this.nam.chiId}&thangCan=${this.thang.canId}&thangChi=${this.thang.chiId}&ngayCan=${this.ngay.canId}&ngayChi=${this.ngay.chiId}&gioCan=${this.gio.canId}&gioChi=${this.gio.chiId}`);
+    this.isCopying = true;
+    this.httpSvc.get(`http://tinyurl.com/api-create.php?url=https://kanghidro.github.io/c5e/?namCan=${this.nam.canId}&namChi=${this.nam.chiId}&thangCan=${this.thang.canId}&thangChi=${this.thang.chiId}&ngayCan=${this.ngay.canId}&ngayChi=${this.ngay.chiId}&gioCan=${this.gio.canId}&gioChi=${this.gio.chiId}`, { responseType: 'text' }).subscribe(res => {
+      console.log(res);
+      if (res) {
+        this.isCopying = false;
+        this.isCopied = true;
+        setTimeout(() => {
+          this.isCopied = false;
+        }, 2000);
+        this.clipboardSvc.copy(res);
+      } else {
+        this.clipboardSvc.copy(`https://kanghidro.github.io/c5e/?namCan=${this.nam.canId}&namChi=${this.nam.chiId}&thangCan=${this.thang.canId}&thangChi=${this.thang.chiId}&ngayCan=${this.ngay.canId}&ngayChi=${this.ngay.chiId}&gioCan=${this.gio.canId}&gioChi=${this.gio.chiId}`);
+      }
+    }, () => this.clipboardSvc.copy(`https://kanghidro.github.io/c5e/?namCan=${this.nam.canId}&namChi=${this.nam.chiId}&thangCan=${this.thang.canId}&thangChi=${this.thang.chiId}&ngayCan=${this.ngay.canId}&ngayChi=${this.ngay.chiId}&gioCan=${this.gio.canId}&gioChi=${this.gio.chiId}`));
   }
 }

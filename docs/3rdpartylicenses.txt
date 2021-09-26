@@ -38,6 +38,9 @@ MIT
 @angular/platform-browser
 MIT
 
+@angular/router
+MIT
+
 @ant-design/colors
 MIT
 MIT LICENSE
@@ -198,6 +201,12 @@ MIT
 
 ng2-charts
 ISC
+
+ngx-clipboard
+MIT
+
+ngx-window-token
+MIT
 
 rxjs
 Apache-2.0

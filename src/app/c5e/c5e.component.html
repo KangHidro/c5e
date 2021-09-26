@@ -93,8 +93,9 @@
       <canvas baseChart [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="'radar'" [legend]="false"></canvas>
     </div>
 
-    <button nz-button [nzType]="isCopied ? 'link' : 'primary'" type="button" class="w-100" (click)="copyShareLink()">
-      <span *ngIf="!isCopied">Lưu kết quả này</span>
+    <button nz-button [nzType]="(isCopied || isCopying)? 'link' : 'primary'" type="button" class="w-100" (click)="copyShareLink()">
+      <span *ngIf="!isCopied && !isCopying">Lưu kết quả này</span>
+      <span *ngIf="isCopying">Đang tạo link...</span>
       <span *ngIf="isCopied">Đã copy vào bộ nhớ tạm!</span>
     </button>
   </div>
