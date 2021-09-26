@@ -54,11 +54,16 @@
 
   <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 1">
     Nhật chủ: <b>{{ getNhatChu() }}</b><br>
-    Kim: {{result.kim}} / 120 <nz-progress nzStrokeColor="gray" [nzPercent]="divPercent(result.kim, 120)"></nz-progress>
-    Thuỷ: {{result.thuy}} / 120 <nz-progress nzStrokeColor="blue" [nzPercent]="divPercent(result.thuy, 120)"></nz-progress>
-    Mộc: {{result.moc}} / 120 <nz-progress nzStrokeColor="green" [nzPercent]="divPercent(result.moc, 120)"></nz-progress>
-    Hoả: {{result.hoa}} / 120 <nz-progress nzStrokeColor="red" [nzPercent]="divPercent(result.hoa, 120)"></nz-progress>
-    Thổ: {{result.tho}} / 120 <nz-progress nzStrokeColor="orange" [nzPercent]="divPercent(result.tho, 120)"></nz-progress>
+
+    <div style="display: block">
+      <canvas baseChart [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="'radar'" [legend]="false"></canvas>
+    </div>
+
+    Kim: {{result.kim}} / 120<br>
+    Thuỷ: {{result.thuy}} / 120<br>
+    Mộc: {{result.moc}} / 120<br>
+    Hoả: {{result.hoa}} / 120<br>
+    Thổ: {{result.tho}} / 120<br>
   </div>
 
   <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 2">

@@ -116,10 +116,19 @@ export class AppComponent {
     tho: 0,
   };
 
+  radarChartLabels: string[] = ['Kim', 'Thuỷ', 'Mộc', 'Hoả', 'Thổ'];
+
+  radarChartData = [
+    { data: [24, 24, 24, 24, 24], label: 'Trung bình' },
+    { data: [0, 0, 0, 0, 0], label: 'Bạn' }
+  ];
+
   nam = { canId: '', chiId: '' };
   thang = { canId: '', chiId: '' };
   ngay = { canId: '', chiId: '' };
   gio = { canId: '', chiId: '' };
+
+  // colorScheme '#9e9e9e', '#2196f3', '#f44336'
 
   calcElement() {
     if (
@@ -129,14 +138,14 @@ export class AppComponent {
       !this.gio.canId || !this.gio.chiId
     ) {
       this.result.status = 2;
-      // this.nam.canId = 'at';
-      // this.nam.chiId = 'hoi';
-      // this.thang.canId = 'dinh';
-      // this.thang.chiId = 'hoi';
-      // this.ngay.canId = 'giap';
-      // this.ngay.chiId = 'tuat';
-      // this.gio.canId = 'at';
-      // this.gio.chiId = 'suu';
+      this.nam.canId = 'at';
+      this.nam.chiId = 'hoi';
+      this.thang.canId = 'dinh';
+      this.thang.chiId = 'hoi';
+      this.ngay.canId = 'giap';
+      this.ngay.chiId = 'tuat';
+      this.gio.canId = 'at';
+      this.gio.chiId = 'suu';
     } else {
       this.result = {
         status: 1,
@@ -145,7 +154,7 @@ export class AppComponent {
         moc: 0,
         hoa: 0,
         tho: 0,
-      };
+      };;
 
       this.getWeightElement(this.nam);
       this.getWeightElement(this.thang);
@@ -210,18 +219,23 @@ export class AppComponent {
       switch (tangCan.elementId) {
         case 'kim':
           this.result.kim += tangCan.weight;
+          this.changeChartValue();
           break;
         case 'thuy':
           this.result.thuy += tangCan.weight;
+          this.changeChartValue();
           break;
         case 'moc':
           this.result.moc += tangCan.weight;
+          this.changeChartValue();
           break;
         case 'hoa':
           this.result.hoa += tangCan.weight;
+          this.changeChartValue();
           break;
         case 'tho':
           this.result.tho += tangCan.weight;
+          this.changeChartValue();
           break;
         default:
           window.alert('Error!');
@@ -229,6 +243,16 @@ export class AppComponent {
       }
     });
 
+  }
+
+  changeChartValue() {
+    this.radarChartData[1].data = [
+      this.result.kim,
+      this.result.thuy,
+      this.result.moc,
+      this.result.hoa,
+      this.result.tho
+    ];
   }
 
   divPercent(a: number, b: number) {

@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzSelectModule } from 'ng-zorro-antd/select';
-import { NzProgressModule } from 'ng-zorro-antd/progress';
+import { ChartsModule } from 'ng2-charts';
 
 registerLocaleData(en);
 
@@ -29,7 +29,7 @@ registerLocaleData(en);
     NzButtonModule,
     NzGridModule,
     NzSelectModule,
-    NzProgressModule,
+    ChartsModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
