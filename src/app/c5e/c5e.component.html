@@ -48,33 +48,33 @@
     <button nz-button type="button" nzType="primary" class="w-100" (click)="calcElement()">Đo thành phần</button>
   </div>
 
-  <div nz-col nzSpan="24" nzXs="24" class="text-center" *ngIf="result.status">
+  <div nz-col nzSpan="24" nzXs="24" class="text-center" *ngIf="result.status === 1">
     <hr>
     <h3 style="color: #f44336">CHÚ Ý!<br>KẾT QUẢ DƯỚI ĐÂY CHỈ MANG TÍNH CHẤT <u>THAM KHẢO</u>!</h3>
   </div>
 
-  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status">
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 1">
     <b><u style="color: #40a9ff">Năm: {{ getNameCan(nam.canId) }} {{ getNameChi(nam.chiId) }}</u></b><br>
     <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(nam.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
     <b>Vòng tràng sinh:</b> {{ getTrangSinh(nam.canId, nam.chiId) }}
   </div>
-  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status">
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 1">
     <b><u style="color: #40a9ff">Tháng: {{ getNameCan(thang.canId) }} {{ getNameChi(thang.chiId) }}</u></b><br>
     <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(nam.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
     <b>Vòng tràng sinh:</b> {{ getTrangSinh(thang.canId, thang.chiId) }}
   </div>
-  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status">
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 1">
     <b><u style="color: #40a9ff">Ngày: {{ getNameCan(ngay.canId) }} {{ getNameChi(ngay.chiId) }}</u></b><br>
     <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(nam.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
     <b>Vòng tràng sinh:</b> {{ getTrangSinh(ngay.canId, ngay.chiId) }}
   </div>
-  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status">
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 1">
     <b><u style="color: #40a9ff">Giờ: {{ getNameCan(gio.canId) }} {{ getNameChi(gio.chiId) }}</u></b><br>
     <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(nam.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
     <b>Vòng tràng sinh:</b> {{ getTrangSinh(gio.canId, gio.chiId) }}
   </div>
 
-  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status">
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 1">
     <hr>
   </div>
 
@@ -100,8 +100,8 @@
     </button>
   </div>
 
-  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 2">
-    <h3>Đầu vào chưa đủ!</h3>
+  <div nz-col nzSpan="24" nzXs="24" class="text-center" *ngIf="result.status === 2">
+    <h3 style="color: #f44336">Đầu vào chưa đủ!</h3>
   </div>
 
 </div>

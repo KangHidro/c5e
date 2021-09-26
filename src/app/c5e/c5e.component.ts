@@ -58,9 +58,16 @@ export class C5eComponent {
     this.ngay.chiId = this.activatedRouter.snapshot.queryParamMap.get('ngayChi') ?? '';
     this.gio.canId = this.activatedRouter.snapshot.queryParamMap.get('gioCan') ?? '';
     this.gio.chiId = this.activatedRouter.snapshot.queryParamMap.get('gioChi') ?? '';
-    setTimeout(() => {
-      this.calcElement();
-    }, 500);
+    if (
+      this.nam.canId && this.nam.chiId &&
+      this.thang.canId && this.thang.chiId &&
+      this.ngay.canId && this.ngay.chiId &&
+      this.gio.canId && this.gio.chiId
+    ) {
+      setTimeout(() => {
+        this.calcElement();
+      }, 500);
+    }
   }
 
   calcElement() {
