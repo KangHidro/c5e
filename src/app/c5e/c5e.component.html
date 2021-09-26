@@ -1,0 +1,106 @@
+<div nz-row nzGutter="16" class="pad-20">
+
+  <div nz-col nzSpan="24" nzXs="6">
+    <label>Năm</label><br>
+    <nz-select class="w-100" [(ngModel)]="nam.canId" nzPlaceHolder="Can" [nzShowArrow]="false">
+      <nz-option *ngFor="let can of listCan" [nzLabel]="can.name" [nzValue]="can.id"></nz-option>
+    </nz-select><br>
+    <nz-select class="w-100" [(ngModel)]="nam.chiId" nzPlaceHolder="Chi" [nzShowArrow]="false">
+      <nz-option *ngFor="let chi of listChi" [nzLabel]="chi.name" [nzValue]="chi.id"></nz-option>
+    </nz-select>
+  </div>
+
+  <div nz-col nzSpan="24" nzXs="6">
+    <label>Tháng</label><br>
+    <nz-select class="w-100" [(ngModel)]="thang.canId" nzPlaceHolder="Can" [nzShowArrow]="false">
+      <nz-option *ngFor="let can of listCan" [nzLabel]="can.name" [nzValue]="can.id"></nz-option>
+    </nz-select><br>
+    <nz-select class="w-100" [(ngModel)]="thang.chiId" nzPlaceHolder="Chi" [nzShowArrow]="false">
+      <nz-option *ngFor="let chi of listChi" [nzLabel]="chi.name" [nzValue]="chi.id"></nz-option>
+    </nz-select>
+  </div>
+
+  <div nz-col nzSpan="24" nzXs="6">
+    <label>Ngày</label><br>
+    <nz-select class="w-100" [(ngModel)]="ngay.canId" nzPlaceHolder="Can" [nzShowArrow]="false">
+      <nz-option *ngFor="let can of listCan" [nzLabel]="can.name" [nzValue]="can.id"></nz-option>
+    </nz-select><br>
+    <nz-select class="w-100" [(ngModel)]="ngay.chiId" nzPlaceHolder="Chi" [nzShowArrow]="false">
+      <nz-option *ngFor="let chi of listChi" [nzLabel]="chi.name" [nzValue]="chi.id"></nz-option>
+    </nz-select>
+  </div>
+
+  <div nz-col nzSpan="24" nzXs="6">
+    <label>Giờ</label><br>
+    <nz-select class="w-100" [(ngModel)]="gio.canId" nzPlaceHolder="Can" [nzShowArrow]="false">
+      <nz-option *ngFor="let can of listCan" [nzLabel]="can.name" [nzValue]="can.id"></nz-option>
+    </nz-select><br>
+    <nz-select class="w-100" [(ngModel)]="gio.chiId" nzPlaceHolder="Chi" [nzShowArrow]="false">
+      <nz-option *ngFor="let chi of listChi" [nzLabel]="chi.name" [nzValue]="chi.id"></nz-option>
+    </nz-select>
+  </div>
+
+  <div nz-col nzSpan="24" nzXs="24">
+    <hr>
+  </div>
+
+  <div nz-col nzSpan="24" nzXs="24" class="text-center">
+    <button nz-button type="button" nzType="primary" class="w-100" (click)="calcElement()">Đo thành phần</button>
+  </div>
+
+  <div nz-col nzSpan="24" nzXs="24" class="text-center" *ngIf="result.status">
+    <hr>
+    <h3 style="color: #f44336">CHÚ Ý!<br>KẾT QUẢ DƯỚI ĐÂY CHỈ MANG TÍNH CHẤT <u>THAM KHẢO</u>!</h3>
+  </div>
+
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status">
+    <b><u style="color: #40a9ff">Năm: {{ getNameCan(nam.canId) }} {{ getNameChi(nam.chiId) }}</u></b><br>
+    <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(nam.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
+    <b>Vòng tràng sinh:</b> {{ getTrangSinh(nam.canId, nam.chiId) }}
+  </div>
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status">
+    <b><u style="color: #40a9ff">Tháng: {{ getNameCan(thang.canId) }} {{ getNameChi(thang.chiId) }}</u></b><br>
+    <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(nam.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
+    <b>Vòng tràng sinh:</b> {{ getTrangSinh(thang.canId, thang.chiId) }}
+  </div>
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status">
+    <b><u style="color: #40a9ff">Ngày: {{ getNameCan(ngay.canId) }} {{ getNameChi(ngay.chiId) }}</u></b><br>
+    <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(nam.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
+    <b>Vòng tràng sinh:</b> {{ getTrangSinh(ngay.canId, ngay.chiId) }}
+  </div>
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status">
+    <b><u style="color: #40a9ff">Giờ: {{ getNameCan(gio.canId) }} {{ getNameChi(gio.chiId) }}</u></b><br>
+    <b>Tàng Can:</b> <span *ngFor='let tangCan of getNameTangCan(nam.chiId)'> {{ getNameCan(tangCan.canId) }}; </span><br>
+    <b>Vòng tràng sinh:</b> {{ getTrangSinh(gio.canId, gio.chiId) }}
+  </div>
+
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status">
+    <hr>
+  </div>
+
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 1">
+    <b><u>Nhật chủ:</u> </b><span style="color: #ff9800"><b> {{ getNhatChu() }} </b></span><br>
+
+    <b><u>Thành phần</u></b><br>
+    <b style="color: #607d8b">Kim: {{result.kim}} / 120</b><br>
+    <b style="color: #2196f3">Thuỷ: {{result.thuy}} / 120</b><br>
+    <b style="color: #4caf50">Mộc: {{result.moc}} / 120</b><br>
+    <b style="color: #f44336">Hoả: {{result.hoa}} / 120</b><br>
+    <b style="color: #795548">Thổ: {{result.tho}} / 120</b><br><br>
+
+    <b><u>Biểu đồ:</u> </b><br>
+    <div style="display: block">
+      <canvas baseChart [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="'radar'" [legend]="false"></canvas>
+    </div>
+
+    <button nz-button [nzType]="isCopied ? 'link' : 'primary'" type="button" class="w-100" (click)="copyShareLink()">
+      <span *ngIf="!isCopied">Lưu kết quả này</span>
+      <span *ngIf="isCopied">Đã copy vào bộ nhớ tạm!</span>
+    </button>
+  </div>
+
+  <div nz-col nzSpan="24" nzXs="24" *ngIf="result.status === 2">
+    <h3>Đầu vào chưa đủ!</h3>
+  </div>
+
+</div>
